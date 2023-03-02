@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+ <form action="" method="post" name="submit-to-google-sheet">
+ <label for="">name</label>
+ <input type="text" name="name">
+ <br>
+ <label for="">password</label>
+ <input type="password" name="password">
+ <br>
+ <label for="">e-mail</label>
+ <input type="e-mail" name="email" id="" name="email">
+ <br>
+ <label for="">phone no.</label>
+ <input type="number" name="phone" id="" name="phone">
+ <br>
+ <button>submit</button>
+  </form> 
+  </section> 
+  
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxIw23tViRTyrTtsza2FHEZqTva9Yje-Nmx2PTQDn3CW2xtd9EYgmqr3Ld7CIOzVoyE/exec'    
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => window.location.href = "https://www.advanceanalyticorb.com/querysubmit.html")
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
